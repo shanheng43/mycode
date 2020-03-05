@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## 诗酒趁年华。
 
 You can use the [editor on GitHub](https://github.com/shanheng43/mycode/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
 
