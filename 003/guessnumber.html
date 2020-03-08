@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>掷骰子</title>
+    <style>
+        body{
+            font-size: 80px;
+        }
+    </style>
+
+</head>
+<body>
+<p id="demo"></p>
+</body>
+
+</html>
+<script>
+    var bingo=false;
+    function guess() {
+        if (bingo){
+            return;
+        }
+        var guess=prompt("您猜骰子是几？");
+        console.info("random===="+a);
+        console.info("guess===="+guess);
+        var diff=Math.abs(a-guess);
+        console.info("diff===="+diff);
+        if (guess==a){
+            document.getElementById("demo").innerHTML="中啦！"+"<img src=\"images/"+a+".jpg\"/>";
+            bingo=true;
+        }
+        else if (guess>a) {
+            document.getElementById("demo").innerHTML="您猜大啦！";
+        }
+        else {
+            document.getElementById("demo").innerHTML="您猜小啦！";
+        }
+    }
+    var a=Math.random();
+    a=Math.floor(a*6)+1;
+    console.info(a);
+    //document.write(a);
+    //document.write("<img src=\"images/"+a+".jpg\"/>");
+    guess();
+    guess();
+</script>
