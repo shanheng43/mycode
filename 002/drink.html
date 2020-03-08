@@ -3,16 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        body{
+            font-size: 50px;
+        }
+    </style>
     <script>
         var price=18,count=prompt(price+"元一杯，您需要多少杯？");
-        if (count%2==0){
-            totalprice=count*price*0.75;
+        function isInterger(obj) {
+            return obj%1 === 0;
+        }
+        if (isNaN(count)){
+            document.write("这不是一个数字！");
         }
         else {
-            totalprice=count*price*0.75+price/4;
+            if (isInterger(count)){
+                if (count%2==0){
+                    totalprice=count*price*0.75;
+                }
+                else {
+                    totalprice=count*price*0.75+price/4;
+                }
+                document.write("您一共消费"+totalprice+"元");
+            }
+            else {
+                document.write("请输入整数杯！")
+            }
         }
-        alert("您一共消费"+totalprice+"元");
-
     </script>
 </head>
 <body>
