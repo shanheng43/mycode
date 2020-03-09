@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="gogogo()">
+
+</body>
+<script>
+    function gogogo() {
+        var r =Math.random();
+        document.body.innerHTML=r;
+        if (r<0.33333){
+            document.body.innerHTML="<img src='images/shitou.jpg'>";
+        }
+        else if (r<0.66667){
+            document.body.innerHTML="<img src='images/jiandao.jpg'>";
+        }
+        else {
+            document.body.innerHTML="<img src='images/bu.jpg'>";
+        }
+    }
+</script>
+</html>
