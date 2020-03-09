@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #button{
+            height: 224px;
+            width: 220px;
+            background-image: url("images/start.jpg");
+        }
+    </style>
+</head>
+<body>
+<audio id="music" src="bgm/bgm.mp3" preload="auto" autoplay="autoplay" loop="loop"></audio>
+<div id="button" onclick="control()"></div>
+</body>
+<script>
+    function control() {
+        if (document.getElementById("music").paused){
+            document.getElementById("music").play();
+            document.getElementById("button").style.backgroundImage="url(\"images/start.jpg\")";
+        }
+        else {
+            document.getElementById("music").pause();
+            document.getElementById("button").style.backgroundImage="url(\"images/stop.jpg\")";
+        }
+    }
+</script>
+</html>

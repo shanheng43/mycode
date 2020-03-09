@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>掷骰子</title>
+    <title>猜数字</title>
     <style>
         body{
             font-size: 80px;
@@ -11,7 +11,7 @@
 
 </head>
 <body>
-<p id="demo"></p>
+<div id="demo"></div>
 </body>
 
 </html>
@@ -26,16 +26,34 @@
         console.info("guess===="+guess);
         var diff=Math.abs(a-guess);
         console.info("diff===="+diff);
+
+        if (!Number.isInteger(guess/1)||guess>6||guess<1){
+            document.getElementById("demo").innerHTML="您的输入有误！";
+            return;
+        }
+
+        var str;
         if (guess==a){
-            document.getElementById("demo").innerHTML="中啦！"+"<img src=\"images/"+a+".jpg\"/>";
+            str="中啦！"+"<img src=\"images/"+a+".jpg\"/>";
             bingo=true;
         }
-        else if (guess>a) {
-            document.getElementById("demo").innerHTML="您猜大啦！";
+        else if (guess>a){
+            if (diff>1){
+                str="您猜得太大啦！";
+            }
+            else {
+                str="您猜得有点儿大！";
+            }
         }
         else {
-            document.getElementById("demo").innerHTML="您猜小啦！";
+            if (diff>1){
+                str="您猜得太小啦！";
+            }
+            else {
+                str="您猜得有点儿小！";
+            }
         }
+        document.getElementById("demo").innerHTML=str;
     }
     var a=Math.random();
     a=Math.floor(a*6)+1;
