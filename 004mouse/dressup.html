@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #container div{
+            width: 600px;
+            height: 600px;
+        }
+        #container{
+            background-image: url("images/dress/00.png");
+            width: 600px;
+            height: 600px;
+            position: absolute;
+            top:60px;
+        }
+        #menu div{
+            float: left;
+            border: 1px solid yellowgreen;
+            width: 100px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div id="menu">
+    <div id="yifu1" onclick="yifu1()">蓝色恋人</div>
+    <div id="yifu2" onclick="yifu2()">青青子衿</div>
+    <div id="yifu3" onclick="yifu3()">嫦娥奔月</div>
+</div>
+<div id="container">
+    <div id="yifu"></div>
+    <div id="kuzi"></div>
+</div>
+</body>
+<script>
+    function yifu1() {
+        document.getElementById("yifu").style.backgroundImage="url(\"images/dress/12.png\")";
+    }
+    function yifu2() {
+        document.getElementById("yifu").style.backgroundImage="url(\"images/dress/22.png\")";
+    }
+    function yifu3() {
+        document.getElementById("yifu").style.backgroundImage="url(\"images/dress/32.png\")";
+    }
+</script>
+</html>
