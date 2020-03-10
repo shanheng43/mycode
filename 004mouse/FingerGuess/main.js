@@ -1,4 +1,4 @@
-var r,score=0,grade=3,lastHumanChoice;
+var r,score=0,grade=1,lastHumanChoice;
 var isComputerWin=false,lastComputerChoice;
 function shitou() {
     document.getElementById("myChoice").innerHTML="<img src=\"images/shitou.png\"/>";
