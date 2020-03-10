@@ -1,55 +1,82 @@
-var r;
+var r,score=0,grade=3,lastHumanChoice;
+var isComputerWin=false,lastComputerChoice;
 function shitou() {
-    r =3*Math.random();
     document.getElementById("myChoice").innerHTML="<img src=\"images/shitou.png\"/>";
-    var computerResult=computerChoice();
-    judge("shitou",computerResult);
+    judge("shitou");
+    lastHumanChoice="shitou";
 }
 function jiandao() {
-    r =3*Math.random();
     document.getElementById("myChoice").innerHTML="<img src=\"images/jiandao.png\"/>";
-    var computerResult=computerChoice();
-    judge("jiandao",computerResult);
+    judge("jiandao");
+    lastHumanChoice="jiandao";
 }
 function bu() {
-    r =3*Math.random();
     document.getElementById("myChoice").innerHTML="<img src=\"images/bu.png\"/>";
-    var computerResult=computerChoice();
-    judge("bu",computerResult);
+    judge("bu");
+    lastHumanChoice="bu";
 }
-function judge(myChoice,computerResult) {
+function judge(myChoice) {
+    r =3*Math.random();
+    var computerResult;
+    if(grade==1){
+        computerResult=onlyshitou();
+    }
+    else if (grade==2){
+        computerResult=mofang();
+    }
+    else if (grade==3){
+        computerResult=winnerAgain();
+        lastComputerChoice=computerResult;
+    }
+    else {
+        computerResult=computerChoice();
+    }
     if (myChoice=="shitou"){
         if (computerResult=="shitou"){
-            document.getElementById("result").innerHTML="draw!";
+            isComputerWin=false;
         }
         else if (computerResult=="jiandao"){
-            document.getElementById("result").innerHTML="you win!";
+            isComputerWin=false;
+            score+=1;
         }
         else if (computerResult=="bu"){
-            document.getElementById("result").innerHTML="you lose!";
+            isComputerWin=true;
+            score-=1;
         }
     }
     else if (myChoice=="jiandao"){
         if (computerResult=="shitou"){
-            document.getElementById("result").innerHTML="you lose!";
+            isComputerWin=true;
+            score-=1;
         }
         else if (computerResult=="jiandao"){
-            document.getElementById("result").innerHTML="draw!";
+            isComputerWin=false;
         }
         else if (computerResult=="bu"){
-            document.getElementById("result").innerHTML="you win!";
+            isComputerWin=false;
+            score+=1;
         }
     }
     else if (myChoice=="bu"){
         if (computerResult=="shitou"){
-            document.getElementById("result").innerHTML="you win!";
+            isComputerWin=false;
+            score+=1;
         }
         else if (computerResult=="jiandao"){
-            document.getElementById("result").innerHTML="you lose!";
+            isComputerWin=true;
+            score-=1;
         }
         else if (computerResult=="bu"){
-            document.getElementById("result").innerHTML="draw!";
+            isComputerWin=false;
         }
+    }
+    if (score>=5){
+        score=0;
+        grade+=1;
+    }
+    document.getElementById("result").innerHTML="第"+grade+"关 积分："+score;
+    if (grade>=10){
+        document.getElementById("result").innerHTML="厉害！全部通关啦！";
     }
 }
 function gogogo() {
@@ -67,4 +94,24 @@ function computerChoice() {
         document.getElementById("computerChoice").innerHTML="<img src='images/bu.png'>";
         return "bu";
     }
+}
+function onlyshitou() {
+    document.getElementById("computerName").innerHTML="大锤哥";
+    document.getElementById("computerChoice").innerHTML="<img src='images/shitou.png'>";
+    return "shitou";
+}
+function mofang() {
+    document.getElementById("computerName").innerHTML="模仿帝";
+    document.getElementById("computerChoice").innerHTML="<img src='images/"+lastHumanChoice+".png'>";
+    return lastHumanChoice;
+}
+function winnerAgain() {
+    document.getElementById("computerName").innerHTML="赢了还出";
+    if (isComputerWin){
+        document.getElementById("computerChoice").innerHTML="<img src='images/"+lastComputerChoice+".png'>";
+        return lastComputerChoice;
+    }
+    var temp=computerChoice();
+    document.getElementById("computerChoice").innerHTML="<img src='images/"+temp+".png'>";
+    return temp;
 }
