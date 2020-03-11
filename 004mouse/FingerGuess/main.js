@@ -225,3 +225,14 @@ function cheatingMan(humanChoice) {
         }
     }
 }
+
+function control() {
+    if (document.getElementById("music").paused){
+        document.getElementById("music").play();
+        document.getElementById("musicButton").style.backgroundImage="url(\"images/start.jpg\")";
+    }
+    else {
+        document.getElementById("music").pause();
+        document.getElementById("musicButton").style.backgroundImage="url(\"images/stop.jpg\")";
+    }
+}

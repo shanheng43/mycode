@@ -1,12 +1,12 @@
 #container{
     width: 600px;
-    height: 300px;
+    height: 1000px;
     border: black solid 10px;
     margin: 0 auto;
 }
 #container>div{
     width: 300px;
-    height: 300px;
+    height: 1000px;
     float: left;
 }
 #mine{
@@ -19,6 +19,7 @@
     transform: scaleX(-1);
 }
 h1{
+    font-size: 50px;
     margin-top: 0 ;
     text-align: center;
 }
@@ -26,4 +27,19 @@ h1{
     font-size: 80px;
     width: 600px;
     text-align: center;
+}
+input{
+    height: 100px;
+    width: 300px;
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+img{
+    width: 300px;
+    height: 400px;
+}
+#musicButton{
+    height: 224px;
+    width: 220px;
+    background-image: url("images/start.jpg");
 }
